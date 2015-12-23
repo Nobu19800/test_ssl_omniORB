@@ -12,7 +12,7 @@ class Echo_i (Example__POA.Echo):
 
 #os.environ['ORBtraceLevel'] = '25'
 
-sslTP.certificate_authority_file("private-key.crt")
+sslTP.certificate_authority_file("certs.crt")
 sslTP.key_file("private-key.key")
 sslTP.key_file_password("test")
 

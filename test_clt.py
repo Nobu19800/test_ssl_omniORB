@@ -5,7 +5,7 @@ import sys, os
 from omniORB import CORBA,sslTP
 import CosNaming, Example
 
-sslTP.certificate_authority_file("private-key.crt")
+sslTP.certificate_authority_file("certs.crt")
 sslTP.key_file("private-key.key")
 sslTP.key_file_password("test")
 
@@ -14,8 +14,8 @@ sslTP.key_file_password("test")
 # ORBの生成と初期化
 #sys.argv.extend(["-ORBtraceLevel", "25"])
 sys.argv.extend(["-ORBInitRef", "NameService=corbaloc:iiop:1.0@localhost:2809/NameService"])
-#sys.argv.extend(["-ORBendPoint","giop:ssl::"])
-#sys.argv.extend(["-ORBsslVerifyMode","none"])
+sys.argv.extend(["-ORBendPoint","giop:ssl::"])
+sys.argv.extend(["-ORBsslVerifyMode","none"])
 #sys.argv.extend(["-ORBendPoint","giop:tcp::"])
 orb = CORBA.ORB_init(sys.argv, CORBA.ORB_ID)
 
